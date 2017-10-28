@@ -1,6 +1,6 @@
 ---
 title: "p8105_hw4_pj2325"
-author: "Pengfei Jiang"
+author: "Pengfei Jiang, Mengqi Zhu & Weijie Liu"
 date: "2017/10/27"
 output: html_document
 ---
@@ -8,6 +8,8 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+> Problem 1:
 
 The project lead will load and tidy the data for this problem. The original data file includes data in “wide” format: the post-natal days on which developmental landmarks are reached are stored in columns called PD_outcome. The project lead will convert these data to “long” format, using reasonable variable names and values.
 
@@ -25,7 +27,7 @@ library(DT)
 library(dplyr)
 ```
 
-In this part, Mengqi Zhu (uni:mz2662) is my collaborator.
+In this problem, Mengqi Zhu (uni:mz2662) is my collaborator.
 
 ```{r message=FALSE, warning=FALSE}
 pups_data <- read_csv("./data/FAS_pups.csv") %>%
@@ -44,3 +46,4 @@ pups_tidy_data %>%
   labs(title = "Distribution of Post-natal Days for Each Developmental Landmark", x = "Days", y = "PD_Landmarks")
 ```
 
+According to the plot, we can see the PD_Landmarks occur in the following sequence: pd_ears, pd_pivot, pd_walk, and pd_eyes. The median of different pd landmarks are roughly around 4 days, 7 days, 8 days, and 14 days, respectively.
