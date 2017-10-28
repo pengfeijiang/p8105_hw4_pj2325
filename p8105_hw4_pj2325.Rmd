@@ -37,5 +37,9 @@ pups_tidy_data <- gather(pups_data, key = PD_outcome, value = days, pd_ears: pd_
 ```
 
 ```{r message=FALSE, warning=FALSE}
-
+pups_tidy_data %>% 
+  group_by(PD_outcome) %>% 
+  ggplot(aes(x = litter_number, y = days, color = PD_outcome)) +
+  geom_point(alpha = .4) +
+  facet_grid(. ~PD_outcome)
 ```
