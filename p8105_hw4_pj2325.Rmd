@@ -25,9 +25,17 @@ library(DT)
 library(dplyr)
 ```
 
+In this part, Mengqi Zhu (uni:mz2662) is my collaborator.
+
 ```{r message=FALSE, warning=FALSE}
 pups_data <- read_csv("./data/FAS_pups.csv") %>%
   clean_names() %>%
-  mutate(sex = factor(sex, labels = c("male", "female"))) %>%
+  mutate(sex = factor(sex, labels = c("male", "female")))
+
+pups_tidy_data <- gather(pups_data, key = PD_outcome, value = days, pd_ears: pd_walk) %>%
   na.omit()
+```
+
+```{r message=FALSE, warning=FALSE}
+
 ```
