@@ -1,0 +1,33 @@
+---
+title: "p8105_hw4_pj2325"
+author: "Pengfei Jiang"
+date: "2017/10/27"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The project lead will load and tidy the data for this problem. The original data file includes data in “wide” format: the post-natal days on which developmental landmarks are reached are stored in columns called PD_outcome. The project lead will convert these data to “long” format, using reasonable variable names and values.
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(readxl)
+library(haven)
+library(janitor)
+library(ggridges)
+library(ggthemes)
+library(rnoaa)
+library(stats)
+library(ggplot2)
+library(DT)
+library(dplyr)
+```
+
+```{r message=FALSE, warning=FALSE}
+pups_data <- read_csv("./data/FAS_pups.csv") %>%
+  clean_names() %>%
+  mutate(sex = factor(sex, labels = c("male", "female"))) %>%
+  na.omit()
+```
